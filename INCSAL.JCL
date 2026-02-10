@@ -1,0 +1,19 @@
+//INCSAL     JOB (ACCT),'INCREMENTO SALARIO',CLASS=A,MSGCLASS=X,
+//             NOTIFY=&SYSUID
+//*
+//* PROGRAMA COBOL: PB0EC319
+//* OBJETIVO: Cruzar fichero maestro y fichero de subidas
+//*           para generar fichero de salida con salarios actualizados
+//*
+//STEP1      EXEC PGM=PB0EC319
+//*
+//* ARCHIVOS DE ENTRADA Y SALIDA
+//MAESTRO    DD  DSN=USER.MAESTRO.EMPLEADOS,DISP=SHR
+//SUBIDAS    DD  DSN=USER.SUBIDAS,DISP=SHR
+//SALIDA     DD  DSN=USER.MAESTRO.SALIDA,DISP=(NEW,CATLG,DELETE),
+//             SPACE=(CYL,(5,1)),UNIT=SYSDA
+//*
+//* SALIDA DE LOG
+//SYSOUT     DD  SYSOUT=*
+//SYSPRINT   DD  SYSOUT=*
+//SYSIN      DD  DUMMY

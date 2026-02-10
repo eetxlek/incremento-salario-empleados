@@ -115,6 +115,25 @@ Copia del maestro con salario actualizado.
 
 ---
 
+## 🚀 Ejecución del programa COBOL
+
+### Archivo JCL: INCSAL.JCL
+
+```jcl
+//INCSAL     JOB (ACCT),'INCREMENTO SALARIO',CLASS=A,MSGCLASS=X,
+//             NOTIFY=&SYSUID
+//*
+//STEP1      EXEC PGM=PB0EC319
+//*
+//MAESTRO    DD  DSN=USER.MAESTRO.EMPLEADOS,DISP=SHR
+//SUBIDAS    DD  DSN=USER.SUBIDAS,DISP=SHR
+//SALIDA     DD  DSN=USER.MAESTRO.SALIDA,DISP=(NEW,CATLG,DELETE),
+//             SPACE=(CYL,(5,1)),UNIT=SYSDA
+//SYSOUT     DD  SYSOUT=*
+//SYSPRINT   DD  SYSOUT=*
+//SYSIN      DD  DUMMY
+
+```
 ## 🧾 Ejemplo de ejecución
 
 COMIENZA EL PROGRAMA PB0EC319
